@@ -4,7 +4,7 @@ A project contains some examples often used in Java program.
 - [Checkstyle](https://maven.apache.org/plugins/maven-checkstyle-plugin/index.html) - [Jump to demo](pom.xml)
 
 ## Spring Boot Demo
-- Typical Layout - TBD
+- Typical Layout - [Jump to demo](api-service)
 - Domain Driven Design - TBD
 - Event Driven - TBD
 - CQRS - TBD
