@@ -2,21 +2,22 @@ package yang.example.service;
 
 import org.springframework.stereotype.Service;
 import yang.example.dto.HelloWorldDTO;
+import yang.example.entity.HelloWorld;
 import yang.example.repository.HelloWorldRepository;
 
 @Service
 public class HelloWorldService {
 
-  public final HelloWorldRepository helloWorldRepository;
+    private final HelloWorldRepository helloWorldRepository;
 
-  public HelloWorldService(
-      HelloWorldRepository helloWorldRepository) {
-    this.helloWorldRepository = helloWorldRepository;
-  }
+    public HelloWorldService(
+        HelloWorldRepository helloWorldRepository) {
+        this.helloWorldRepository = helloWorldRepository;
+    }
 
-  public HelloWorldDTO getHelloWorld() {
-    String message = helloWorldRepository.getHelloWorld();
+    public HelloWorldDTO getHelloWorld() {
+        HelloWorld message = helloWorldRepository.getHelloWorld();
 
-    return new HelloWorldDTO(message);
-  }
+        return new HelloWorldDTO(message.getMessage());
+    }
 }

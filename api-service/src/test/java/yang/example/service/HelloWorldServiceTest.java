@@ -9,23 +9,26 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import yang.example.dto.HelloWorldDTO;
+import yang.example.entity.HelloWorld;
 import yang.example.repository.HelloWorldRepository;
 
 @ExtendWith(MockitoExtension.class)
 class HelloWorldServiceTest {
 
-  @Mock
-  private HelloWorldRepository helloWorldRepository;
+    @Mock
+    private HelloWorldRepository helloWorldRepository;
 
-  @InjectMocks
-  private HelloWorldService helloWorldService;
+    @InjectMocks
+    private HelloWorldService helloWorldService;
 
-  @Test
-  void shouldGetMessageFromRepository() {
-    when(helloWorldRepository.getHelloWorld()).thenReturn("Hello World Test");
+    @Test
+    void shouldGetMessageFromRepository() {
+        HelloWorld helloWorld = new HelloWorld();
+        helloWorld.setMessage("Hello World Test");
+        when(helloWorldRepository.getHelloWorld()).thenReturn(helloWorld);
 
-    HelloWorldDTO helloWorld = helloWorldService.getHelloWorld();
+        HelloWorldDTO helloWorldDTO = helloWorldService.getHelloWorld();
 
-    assertEquals("Hello World Test", helloWorld.getMessage());
-  }
+        assertEquals("Hello World Test", helloWorldDTO.getMessage());
+    }
 }

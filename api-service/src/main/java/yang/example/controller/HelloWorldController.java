@@ -10,14 +10,14 @@ import yang.example.service.HelloWorldService;
 @RequestMapping("helloWorld")
 public class HelloWorldController {
 
-  private final HelloWorldService helloWorldService;
+    private final HelloWorldService helloWorldService;
 
-  public HelloWorldController(HelloWorldService helloWorldService) {
-    this.helloWorldService = helloWorldService;
-  }
+    public HelloWorldController(HelloWorldService helloWorldService) {
+        this.helloWorldService = helloWorldService;
+    }
 
-  @GetMapping
-  public HelloWorldDTO helloWorld() {
-    return helloWorldService.getHelloWorld();
-  }
+    @GetMapping
+    public HelloWorldDTO helloWorld() {
+        return helloWorldService.getHelloWorld();
+    }
 }
