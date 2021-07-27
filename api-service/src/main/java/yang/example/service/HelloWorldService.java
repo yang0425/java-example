@@ -10,8 +10,7 @@ public class HelloWorldService {
 
     private final HelloWorldRepository helloWorldRepository;
 
-    public HelloWorldService(
-        HelloWorldRepository helloWorldRepository) {
+    public HelloWorldService(HelloWorldRepository helloWorldRepository) {
         this.helloWorldRepository = helloWorldRepository;
     }
 
