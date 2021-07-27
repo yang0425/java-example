@@ -1,7 +1,7 @@
 package yang.example.service;
 
 import org.springframework.stereotype.Service;
-import yang.example.dto.HelloWorldDTO;
+import yang.example.dto.HelloWorldDto;
 import yang.example.entity.HelloWorld;
 import yang.example.repository.HelloWorldRepository;
 
@@ -15,9 +15,9 @@ public class HelloWorldService {
         this.helloWorldRepository = helloWorldRepository;
     }
 
-    public HelloWorldDTO getHelloWorld() {
+    public HelloWorldDto getHelloWorld() {
         HelloWorld message = helloWorldRepository.getHelloWorld();
 
-        return new HelloWorldDTO(message.getMessage());
+        return new HelloWorldDto(message.getMessage());
     }
 }

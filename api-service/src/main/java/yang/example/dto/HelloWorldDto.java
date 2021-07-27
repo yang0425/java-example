@@ -1,10 +1,10 @@
 package yang.example.dto;
 
-public class HelloWorldDTO {
+public class HelloWorldDto {
 
   private final String message;
 
-  public HelloWorldDTO(String message) {
+  public HelloWorldDto(String message) {
     this.message = message;
   }
 

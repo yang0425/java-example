@@ -8,7 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import yang.example.dto.HelloWorldDTO;
+import yang.example.dto.HelloWorldDto;
 import yang.example.entity.HelloWorld;
 import yang.example.repository.HelloWorldRepository;
 
@@ -27,8 +27,8 @@ class HelloWorldServiceTest {
         helloWorld.setMessage("Hello World Test");
         when(helloWorldRepository.getHelloWorld()).thenReturn(helloWorld);
 
-        HelloWorldDTO helloWorldDTO = helloWorldService.getHelloWorld();
+        HelloWorldDto helloWorldDto = helloWorldService.getHelloWorld();
 
-        assertEquals("Hello World Test", helloWorldDTO.getMessage());
+        assertEquals("Hello World Test", helloWorldDto.getMessage());
     }
 }
