@@ -1,9 +1,9 @@
 package yang.example.repository;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
 import yang.example.entity.HelloWorld;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class HelloWorldRepositoryTest {
 
@@ -13,6 +13,6 @@ class HelloWorldRepositoryTest {
     void shouldReturnHelloWorld() {
         HelloWorld helloWorld = helloWorldRepository.getHelloWorld();
 
-        assertEquals("Hello World!", helloWorld.getMessage());
+        assertThat(helloWorld.getMessage()).isEqualTo("Hello World!");
     }
 }

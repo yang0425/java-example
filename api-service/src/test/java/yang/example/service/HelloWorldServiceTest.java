@@ -1,8 +1,5 @@
 package yang.example.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,6 +8,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import yang.example.dto.HelloWorldDto;
 import yang.example.entity.HelloWorld;
 import yang.example.repository.HelloWorldRepository;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.BDDMockito.given;
 
 @ExtendWith(MockitoExtension.class)
 class HelloWorldServiceTest {
@@ -25,10 +25,10 @@ class HelloWorldServiceTest {
     void shouldGetMessageFromRepository() {
         HelloWorld helloWorld = new HelloWorld();
         helloWorld.setMessage("Hello World Test");
-        when(helloWorldRepository.getHelloWorld()).thenReturn(helloWorld);
+        given(helloWorldRepository.getHelloWorld()).willReturn(helloWorld);
 
         HelloWorldDto helloWorldDto = helloWorldService.getHelloWorld();
 
-        assertEquals("Hello World Test", helloWorldDto.getMessage());
+        assertThat(helloWorldDto.getMessage()).isEqualTo("Hello World Test");
     }
 }
