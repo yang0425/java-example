@@ -19,6 +19,7 @@
         <module>build-tools</module>
         <module>test/junit5</module>
         <module>api-service</module>
+        <module>karate</module>
     </modules>
 
     <properties>

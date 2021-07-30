@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>java-example</artifactId>
+        <groupId>yang.example</groupId>
+        <version>1.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>karate</artifactId>
+
+    <properties>
+        <karate.version>1.0.1</karate.version>
+        <gatling.plugin.version>3.1.1</gatling.plugin.version>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.intuit.karate</groupId>
+            <artifactId>karate-gatling</artifactId>
+            <version>${karate.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.gatling</groupId>
+                <artifactId>gatling-maven-plugin</artifactId>
+                <version>${gatling.plugin.version}</version>
+                <configuration>
+                    <simulationsFolder>src/test/java</simulationsFolder>
+                    <includes>
+                        <include>yang.example.HelloWorldSimulation</include>
+                    </includes>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
