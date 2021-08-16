@@ -1,0 +1,78 @@
+<configuration>
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+			<providers>
+				<pattern>
+					<pattern>
+						{
+						"timestamp": "%d{HH:mm:ss.SSS}",
+						"project": "api-service",
+						"log_level": "%level",
+						"thread": "%thread",
+						"class_name": "%class",
+						"line_number": "%line",
+						"message": "%message",
+						"stack_trace": "%exception{5}",
+						"status": "%X{status}",
+						"duration_millis": "%X{duration_millis}",
+						"application_tier": "%X{application_tier}",
+						"action": "%X{action}",
+						"trace_id": "%X{trace_id}"
+						}
+					</pattern>
+				</pattern>
+			</providers>
+		</encoder>
+	</appender>
+
+	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/ecommerce-product.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>logs/ecommerce-product.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>7</maxHistory>
+			<totalSizeCap>2GB</totalSizeCap>
+		</rollingPolicy>
+		<encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+			<providers>
+				<pattern>
+					<pattern>
+						{
+						"timestamp": "%d{HH:mm:ss.SSS}",
+						"project": "api-service",
+						"log_level": "%level",
+						"thread": "%thread",
+						"class_name": "%class",
+						"line_number": "%line",
+						"message": "%message",
+						"stack_trace": "%exception{5}",
+						"status": "%X{status}",
+						"duration_millis": "%X{duration_millis}",
+						"application_tier": "%X{application_tier}",
+						"action": "%X{action}",
+						"trace_id": "%X{trace_id}"
+						}
+					</pattern>
+				</pattern>
+			</providers>
+		</encoder>
+	</appender>
+
+	<appender name="ASYNC" class="ch.qos.logback.classic.AsyncAppender">
+
+		<discardingThreshold >0</discardingThreshold>
+		<queueSize>512</queueSize>
+		<appender-ref ref ="FILE"/>
+
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	<appender name="ASYNC-STDOUT" class="ch.qos.logback.classic.AsyncAppender">
+
+		<discardingThreshold >0</discardingThreshold>		<queueSize>512</queueSize>
+		<appender-ref ref ="STDOUT"/>
+		<includeCallerData>true</includeCallerData>
+	</appender>
+	<root level="INFO">
+		<appender-ref ref="ASYNC-STDOUT" />
+		<appender-ref ref="ASYNC" />
+	</root>
+</configuration>

@@ -8,15 +8,15 @@ import yang.example.repository.HelloWorldRepository;
 @Service
 public class HelloWorldService {
 
-    private final HelloWorldRepository helloWorldRepository;
+  private final HelloWorldRepository helloWorldRepository;
 
-    public HelloWorldService(HelloWorldRepository helloWorldRepository) {
-        this.helloWorldRepository = helloWorldRepository;
-    }
+  public HelloWorldService(HelloWorldRepository helloWorldRepository) {
+    this.helloWorldRepository = helloWorldRepository;
+  }
 
-    public HelloWorldDto getHelloWorld() {
-        HelloWorld message = helloWorldRepository.getHelloWorld();
+  public HelloWorldDto getHelloWorld() {
+    HelloWorld message = helloWorldRepository.getHelloWorld();
 
-        return new HelloWorldDto(message.getMessage());
-    }
+    return new HelloWorldDto(message.getMessage());
+  }
 }

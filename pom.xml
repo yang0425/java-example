@@ -10,16 +10,17 @@
         <version>2.5.3</version>
         <relativePath/>
     </parent>
-    <packaging>pom</packaging>
     <groupId>yang.example</groupId>
     <artifactId>java-example</artifactId>
     <version>1.0</version>
+    <packaging>pom</packaging>
 
     <modules>
         <module>build-tools</module>
-        <module>test/junit5</module>
+        <module>junit5</module>
         <module>api-service</module>
         <module>karate</module>
+        <module>jmeter</module>
     </modules>
 
     <properties>
@@ -60,7 +61,7 @@
                         <dependency>
                             <groupId>yang.example</groupId>
                             <artifactId>build-tools</artifactId>
-                            <version>1.0-SNAPSHOT</version>
+                            <version>1.0</version>
                         </dependency>
                     </dependencies>
                     <configuration>
@@ -68,8 +69,7 @@
                         <encoding>${project.build.sourceEncoding}</encoding>
                         <consoleOutput>true</consoleOutput>
                         <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                        <failOnViolation>true</failOnViolation>
-                        <violationSeverity>warning</violationSeverity>
+                        <failsOnError>true</failsOnError>
                     </configuration>
                     <executions>
                         <execution>
