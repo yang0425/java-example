@@ -5,7 +5,6 @@ import static java.util.stream.Collectors.toMap;
 
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,6 @@ public class RedisService {
   private RedisTemplate<String, Integer> redisTemplate;
 
   @Autowired
-  @Qualifier("redisTemplateV2")
   private RedisTemplate<String, Integer> redisTemplateV2;
 
   public void addV1(String key, int value) {
