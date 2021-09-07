@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: redis
+  redis:
+    database: 1
+    stockDatabase: 2
+    timeout: 50000
+    host: 127.0.0.1
+    password: 123456
+    port: 6379
+    jedis:
+      pool:
+        maxActive: 1000
+        maxIdle: 1000
+        maxWaitMillis:
+        minidle: 500
+        testOnBorrow: false
+        testOnReturn: false
