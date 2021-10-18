@@ -3,7 +3,6 @@ spring:
     name: redis
   redis:
     database: 1
-    stockDatabase: 2
     timeout: 50000
     host: 127.0.0.1
     password: 123456

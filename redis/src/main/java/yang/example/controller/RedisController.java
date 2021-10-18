@@ -20,21 +20,16 @@ public class RedisController {
 
   @PostMapping("v1")
   public void addV1(@RequestParam String key, @RequestParam int value) {
-    redisService.addV1(key, value);
+    redisService.add(key, value);
   }
 
   @GetMapping("v1")
   public Map<String, Integer> listV1() {
-    return redisService.listV1();
+    return redisService.list();
   }
 
-  @PostMapping("v2")
-  public void addV2(@RequestParam String key, @RequestParam int value) {
-    redisService.addV2(key, value);
-  }
-
-  @GetMapping("v2")
-  public Map<String, Integer> listV2() {
-    return redisService.listV2();
+  @GetMapping("cache")
+  public String cache(@RequestParam String value){
+    return redisService.cache(value);
   }
 }
