@@ -1,0 +1,44 @@
+[
+  {
+    "httpRequest": {
+      "path": "/hello",
+      "method": "get",
+      "headers": [
+        {
+          "name": "language",
+          "values": [
+            "en"
+          ]
+        }
+      ]
+    },
+    "httpResponse": {
+      "body": {
+        "data": {
+          "name": "test"
+        }
+      }
+    }
+  },
+  {
+    "httpRequest": {
+      "path": "/hello",
+      "method": "get",
+      "headers": [
+        {
+          "name": "language",
+          "values": [
+            "cn"
+          ]
+        }
+      ]
+    },
+    "httpResponse": {
+      "body": {
+        "data": {
+          "name": "测试"
+        }
+      }
+    }
+  }
+]
