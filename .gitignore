@@ -4,3 +4,9 @@
 
 ## compile
 target
+data
+logs
+
+## Mac OS
+.DS_Store
+
